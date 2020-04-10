@@ -38,6 +38,7 @@ function Header() {
     return theHeader
 }
 
+// Add Header to page
 const headAnchor = document.querySelector('.header-container')
 let theHeader = Header();
 
