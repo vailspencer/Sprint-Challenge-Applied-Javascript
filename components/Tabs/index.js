@@ -7,3 +7,32 @@
 //
 //  Each tab should look like this:
 //    <div class="tab">topic here</div>
+
+
+// Tab HTML framework, class and text
+
+const createTab = (tabData) =>{
+
+    const topic = document.createElement('div');
+
+    topic.classList.add('tab');
+    topic.textContent = tabData;
+
+    return topic;
+}
+
+// Grab API for data 
+const tabHook = document.querySelector('.topics');
+const axiosPromise = axios.get('https://lambda-times-backend.herokuapp.com/topics')
+
+axiosPromise.then((response) => {
+
+    //Add data from API to topics tabs 
+    const topicArray = response.data.topics;
+        topicArray.forEach((item) =>{
+            const newTab = createTab(item);
+            tabHook.appendChild(newTab);
+        })
+});
+
+
