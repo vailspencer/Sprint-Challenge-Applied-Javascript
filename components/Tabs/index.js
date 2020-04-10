@@ -30,7 +30,7 @@ axiosPromise.then((response) => {
     //Add data from API to topics tabs 
     const topicArray = response.data.topics;
         topicArray.forEach((item) =>{
-            const newTab =createTab(item);
+            const newTab = createTab(item);
             tabHook.appendChild(newTab);
         })
 });
